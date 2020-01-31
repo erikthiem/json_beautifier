@@ -42,6 +42,8 @@
       keys.forEach(function(key) {
         value = json_object[key];
 
+            debugger;
+        // TODO make this also handle integers/floats/etc. Any leaf value of the tree.
         if (typeof value === 'string')
         {
           console.log(`${nesting_level} : {${key}, ${value}}`);
@@ -50,10 +52,18 @@
         else if (typeof value === 'object')
         {
           console.log(`${nesting_level} : {${key}}`);
+          printStuffNicely(key, "", nesting_level);
         
           doBeautifulThings(value, nesting_level + 1);
         }
-        else {
+        else if (typeof value === 'array')
+        {
+          value.forEach(function(element) {
+            doBeautifulThings(element, nesting_level + 1);
+          });
+        }
+        else
+        {
           return;
         }
       })
@@ -63,8 +73,6 @@
       var anchor_element = $("#results");
 
       space = "&nbsp".repeat(nesting_level * 8)
-
-      debugger
 
       if (value === "")
       {
