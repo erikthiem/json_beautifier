@@ -1,0 +1,62 @@
+{
+    "indicator": {
+        "patient": {
+            "first_name": "firstname",
+            "middle_name": "",
+            "last_name": "lastname",
+            "date_of_birth": "10/26/1985",
+            "gender": "",
+            "pbm_member_id": "",
+            "member_id": "",
+            "person_code": "",
+            "address": {
+                "street_1": "",
+                "street_2": "",
+                "city": "",
+                "state": "",
+                "zip": "72002"
+            }
+        },
+        "payer": {
+            "bin": "000000",
+            "pcn": "",
+            "group_id": ""
+        },
+        "prescriber": {
+            "npi": "",
+            "first_name": "",
+            "last_name": "",
+            "address": {
+                "street_1": "",
+                "street_2": "",
+                "city": "",
+                "state": "",
+                "zip": ""
+            },
+            "fax_number": "",
+            "phone_number": ""
+        },
+        "pharmacy": {
+            "address": {
+                "street_1": "",
+                "street_2": "",
+                "city": "",
+                "state": "",
+                "zip": ""
+            },
+            "name": "",
+            "npi": ""
+        },
+        "prescription": {
+            "drug_id": "61958090101",
+            "quantity_unit_of_measure": "",
+            "rationale": "",
+            "refills": "",
+            "fill_number": "",
+            "quantity": "",
+            "autostart": null
+        },
+        "price_options": [],
+        "prediction_id": "ffacb492e2de5bbe5546eaa562def631"
+    }
+}

@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>JSON Beautifier</title>
+  </head>
+  <body>
+
+    <input type="file"
+       id="json_file" name="json_file"
+       accept="application/json">
+    <input type="submit" id="submit_json" value="Make Beautiful" />
+
+    <div id="results"></div>
+
+  </body>
+
+  <script>
+
+    $(document).ready(function() {
+
+      $("#submit_json").click(function() {
+
+        var json_file = $("#json_file").prop('files')[0];
+
+        var json_object;
+        var fr = new FileReader();
+
+        fr.readAsText(json_file);
+
+        fr.onload = function () {
+          json_object = JSON.parse(fr.result);
+
+          doBeautifulThings(json_object);
+        };
+      });
+    });
+
+    function doBeautifulThings(json_object) {
+
+      console.log(json_object.indicator);
+
+    }
+
+  </script>
+</html>
