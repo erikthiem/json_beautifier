@@ -30,15 +30,50 @@
         fr.onload = function () {
           json_object = JSON.parse(fr.result);
 
-          doBeautifulThings(json_object);
+          doBeautifulThings(json_object, 1);
         };
       });
     });
 
-    function doBeautifulThings(json_object) {
+    function doBeautifulThings(json_object, nesting_level) {
 
-      console.log(json_object.indicator);
+      keys = Object.keys(json_object);
 
+      keys.forEach(function(key) {
+        value = json_object[key];
+
+        if (typeof value === 'string')
+        {
+          console.log(`${nesting_level} : {${key}, ${value}}`);
+          printStuffNicely(key, value, nesting_level);
+        }
+        else if (typeof value === 'object')
+        {
+          console.log(`${nesting_level} : {${key}}`);
+        
+          doBeautifulThings(value, nesting_level + 1);
+        }
+        else {
+          return;
+        }
+      })
+    }
+
+    function printStuffNicely(key, value, nesting_level) {
+      var anchor_element = $("#results");
+
+      space = "&nbsp".repeat(nesting_level * 8)
+
+      debugger
+
+      if (value === "")
+      {
+        anchor_element.append(`<h${nesting_level}>${space}<em>${key}</em></h${nesting_level}>`)
+      }
+      else
+      {
+        anchor_element.append(`<h${nesting_level}>${space}<em>${key}</em> : ${value} </h${nesting_level}>`)
+      }
     }
 
   </script>
